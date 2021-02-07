@@ -9,5 +9,4 @@
     <ProjectReference Include="..\Business\Business.csproj" />
     <ProjectReference Include="..\Entity\Entity.csproj" />
   </ItemGroup>
-
 </Project>

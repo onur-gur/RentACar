@@ -25,7 +25,6 @@ namespace ConsoleApp1
             Car car = new Car { BrandId = 3, ColorId = 3, ModelYear = 2021, DailyPrice = 1000000, Description = "CLA 200" };
 
             manager.Add(car);
-            //Console.WriteLine("Ekledi");
         }
 
 

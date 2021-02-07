@@ -7,6 +7,6 @@ namespace Dal.Abstract
 {
     public interface ICarDal:IEntityRepository<Car>
     {
-        
+
     }
 }

@@ -7,5 +7,6 @@ namespace Dal.Abstract
 {
     public interface IColorDal:IEntityRepository<Color>
     {
+
     }
 }

@@ -8,5 +8,4 @@
     <ProjectReference Include="..\Dal\Dal.csproj" />
     <ProjectReference Include="..\Entity\Entity.csproj" />
   </ItemGroup>
-
 </Project>
