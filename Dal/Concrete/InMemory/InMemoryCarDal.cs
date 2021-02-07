@@ -1,5 +1,8 @@
-﻿using Dal.Abstract;
+﻿using Core.DataAccess.EntityFramework;
+using Dal.Abstract;
+using Dal.Concrete.EntityFramework.Context;
 using Entity.Concrete;
+using Entity.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +11,7 @@ using System.Text;
 
 namespace Dal.Concrete.InMemory
 {
-    public class InMemoryCarDal : ICarDal
+    public class InMemoryCarDal : EfEntityRepositoryBase<Car, ReCapContext>, ICarDal
     {
         List<Car> _cars;
         List<Brand> _brands;
@@ -94,6 +97,11 @@ namespace Dal.Concrete.InMemory
         }
 
         public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<CarDetailDto> GetDetails()
         {
             throw new NotImplementedException();
         }

@@ -2,6 +2,7 @@
 using Dal.Abstract;
 using Dal.Concrete.EntityFramework;
 using Entity.Concrete;
+using Entity.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -38,6 +39,11 @@ namespace Business.Concrete
         public List<Car> GetByColorId(int colorId)
         {
             return _carDal.GetAll(c => c.ColorId == colorId);
+        }
+
+        public List<CarDetailDto> GetDetail()
+        {
+            return _carDal.GetDetails();
         }
     }
 }

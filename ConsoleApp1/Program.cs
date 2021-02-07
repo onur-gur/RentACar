@@ -15,16 +15,16 @@ namespace ConsoleApp1
 
             CarManager manager = new CarManager(new EfCarDal());
 
-            //var cars = manager.GetAll();
+            var cars = manager.GetDetail();
 
-            //foreach (var car1 in cars)
-            //{
-            //    Console.WriteLine(car1.Description);
-            //}
+            foreach (var car1 in cars)
+            {
+                Console.WriteLine(car1.BrandName + "/" + car1.Description + "/" + car1.DailyPrice + "/" + car1.ColorName);
+            }
 
             Car car = new Car { BrandId = 3, ColorId = 3, ModelYear = 2021, DailyPrice = 1000000, Description = "CLA 200" };
 
-            manager.Add(car);
+            //manager.Add(car);
         }
 
 

@@ -1,11 +1,9 @@
-﻿using Entity.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Core.DataAccess;
+using Entity.Concrete;
 
 namespace Dal.Abstract
 {
-    public interface IColorDal:IEntityRepository<Color>
+    public interface IColorDal : IEntityRepository<Color>
     {
 
     }

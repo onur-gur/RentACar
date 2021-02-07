@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Dal.Concrete.EntityFramework.Context
 {
-   public class ReCapContext : DbContext
+    public class ReCapContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
