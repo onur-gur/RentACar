@@ -17,12 +17,12 @@ namespace ConsoleApp1
 
             var cars = manager.GetDetail();
 
-            foreach (var car1 in cars)
+            foreach (var car1 in cars.Data)
             {
                 Console.WriteLine(car1.BrandName + "/" + car1.Description + "/" + car1.DailyPrice + "/" + car1.ColorName);
             }
 
-            Car car = new Car { BrandId = 3, ColorId = 3, ModelYear = 2021, DailyPrice = 1000000, Description = "CLA 200" };
+            //Car car = new Car { BrandId = 3, ColorId = 3, ModelYear = 2021, DailyPrice = 1000000, Description = "CLA 200" };
 
             //manager.Add(car);
         }
