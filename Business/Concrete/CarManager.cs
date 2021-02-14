@@ -26,8 +26,14 @@ namespace Business.Concrete
             {
                 return new ErrorResult(Messages.CarDescriptionInvalid);
             }
-
+            _carDal.Add(car);
             return new SuccessResult(Messages.CarAdded);
+        }
+
+        public IResult Delete(Car car)
+        {
+            _carDal.Delete(car);
+            return new SuccessResult(); 
         }
 
         public IDataResult<List<Car>> GetAll()
@@ -64,6 +70,12 @@ namespace Business.Concrete
                 return new ErrorDataResult<List<CarDetailDto>>(Messages.MaintenanceTime);
             }
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetDetails(), Messages.CarListed);
+        }
+
+        public IResult Update(Car car)
+        {
+            _carDal.Update(car);
+            return new SuccessResult();
         }
     }
 }

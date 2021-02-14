@@ -1,4 +1,5 @@
 ﻿using Core.DataAccess.EntityFramework;
+using Dal.Abstract;
 using Dal.Concrete.EntityFramework.Context;
 using Entity.Concrete;
 using System;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace Dal.Concrete.EntityFramework
 {
-    public class EfUserDal : EfEntityRepositoryBase<User,ReCapContext>,
+    public class EfUserDal : EfEntityRepositoryBase<User, ReCapContext>, IUserDal
     {
     }
 }
