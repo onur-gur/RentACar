@@ -17,6 +17,7 @@ namespace Business.Concrete
         {
             _rentalDal = rentalDal;
         }
+
         public IResult Add(Rental rental)
         {
             if (rental.RentDate >= DateTime.Now)
