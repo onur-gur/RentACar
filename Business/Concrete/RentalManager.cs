@@ -5,8 +5,10 @@ using Core.Aspect.Autofac.Validation;
 using Core.Utilities.Results;
 using Dal.Abstract;
 using Entity.Concrete;
+using Entity.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace Business.Concrete
@@ -23,12 +25,14 @@ namespace Business.Concrete
         [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
-            if (rental.RentDate >= DateTime.Now)
+            var result = _rentalDal.GetRentalDetails(r => r.CarId == rental.CarId);
+            if (rental.RentDate < DateTime.Now || result.Count > 0)
             {
-                _rentalDal.Add(rental);
-                return new SuccessResult(Messages.Added);
+                return new ErrorResult(Messages.InvalidDate);
+
             }
-            return new ErrorResult(Messages.InvalidDate);
+            _rentalDal.Add(rental);
+            return new SuccessResult(Messages.Added);
         }
 
         public IResult ReturnCar(Rental rental)
@@ -63,6 +67,31 @@ namespace Business.Concrete
         {
             _rentalDal.Update(rental);
             return new SuccessResult(Messages.DeliveredCar);
+        }
+
+        public IDataResult<List<Rental>> GetByCarId(int id)
+        {
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(r => r.CarId == id));
+        }
+
+        public IDataResult<List<Rental>> GetByCustomerId(int id)
+        {
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(r => r.CustomerId == id));
+        }
+
+        public IDataResult<List<Rental>> GetByRentDate(DateTime time)
+        {
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(r => r.RentDate == time));
+        }
+
+        public IDataResult<List<Rental>> GetByReturnDate(DateTime time)
+        {
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(r => r.RentDate == time));
+        }
+
+        public IDataResult<List<RentalDetailDto>> GetRentalDetails(Expression<Func<Rental, bool>> filter = null)
+        {
+            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails());
         }
     }
 }

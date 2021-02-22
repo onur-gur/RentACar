@@ -84,5 +84,60 @@ namespace WepAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getbycustomerid")]
+        public IActionResult GetByCustomerId(int id)
+        {
+            var result = _rentalService.GetByCustomerId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+
+        [HttpGet("geybycarid")]
+        public IActionResult GetByCarId(int id)
+        {
+            var result = _rentalService.GetByCarId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+
+        [HttpGet("geybycarid")]
+        public IActionResult GetByRentDate(DateTime time)
+        {
+            var result = _rentalService.GetByRentDate(time);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+
+        [HttpGet("geybycarid")]
+        public IActionResult GetByReturnDate(DateTime time)
+        {
+            var result = _rentalService.GetByReturnDate(time);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+
+        [HttpGet("getrentaldetail")]
+        public IActionResult GetRentalDetail()
+        {
+            var result = _rentalService.GetRentalDetails();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
     }
 }
