@@ -18,5 +18,6 @@ namespace Business.Constants
         public static string Listed = "listelendi";
         public static string InvalidDate = "Geçersiz tarih";
         public static string DeliveredCar = "Araç teslim edildi";
+        public static string FailImageLimitExceeded = "Araba resim sayısı 5'i geçemez";
     }
 }
