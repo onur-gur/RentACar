@@ -1,4 +1,5 @@
-﻿using Entity.Concrete;
+﻿using Core.Entity.Concrete;
+using Entity.Concrete;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -28,9 +29,9 @@ namespace Business.ValidationRules.FluentValidation
                 //.Must(IsValidEmail)
                 .WithMessage("Geçersiz email");
 
-            RuleFor(u => u.Password)
-                .NotEmpty().WithMessage("Şifre boş geçilemez")
-                .Must(IsValidPassword).WithMessage("Geçersiz şifre girişi");
+            //RuleFor(u => u.Password)
+            //    .NotEmpty().WithMessage("Şifre boş geçilemez")
+            //    .Must(IsValidPassword).WithMessage("Geçersiz şifre girişi");
         }
 
         //PASSWORD REGEX
