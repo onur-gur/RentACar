@@ -1,2 +1,4 @@
 # RentACar
-.Net Core, EntityFramework Core Sample
+.Net Core, EntityFramework Core
+Jwt
+ASP.NET Core
