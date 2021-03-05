@@ -20,5 +20,7 @@ namespace Business.Abstract
         IResult Update(Car car);
         IDataResult<List<Car>> GetAll();
         IDataResult<List<CarDetailDto>> GetDetail();
+        IResult AddTransactions(Car car);
+
     }
 }
